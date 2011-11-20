@@ -1,0 +1,9 @@
+clean=
+clobber=
+clobber_rdoc=
+doc=
+doc/rdoc=
+doc/rdoc/index.html=
+rdoc=
+rerdoc=
+test=

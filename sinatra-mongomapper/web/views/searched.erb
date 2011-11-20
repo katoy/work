@@ -1,0 +1,14 @@
+<a href='/search'>検索ページに戻る</a><br />
+<h2>検索結果</h2>
+<% if @persons.empty? %>
+  <p>
+          検索に該当する人がいませんでした。
+  </p>
+<% else %>
+  <p>検索結果:<%= @persons.size %>件</p>
+  <% @persons.each { |person| %>
+    <ul data-role="listview" data-inset="true">
+      <li><%= h "#{person.name} #{person.tel} #{person.address}" %></li>
+    </ul>
+  <% } %>
+<% end %>

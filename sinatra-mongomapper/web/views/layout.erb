@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" />
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+
+    <!-- Optional Mousewheel support: http://brandonaaron.net/code/mousewheel/docs -->
+    <script type="text/javascript" src="/js/jquery.mousewheel.3.0.2/jquery.mousewheel.min.js"></script>
+    <!--
+        <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+    -->
+    <script type="text/javascript" src="/js/jquery.mobile.datebox-1.0.0-modify.js"></script>
+
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
+    <script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.jp.js"></script>
+
+    <script>
+      jQuery.extend(jQuery.mobile.datebox.prototype.options, {
+        'dateFormat': 'YYYY-MM-DD',
+        'titleDateDialogLabel': 'カレンダー',
+        'pickPageTheme': 'b',
+        'pickPageButtonTheme': 'b',
+        'pickPageHighButtonTheme': 'e',
+        'pickPageTodayButtonTheme': 'e'
+      });
+
+      //reset type=date inputs to text
+      $( document ).bind( "mobileinit", function(){
+        $('#birthday').data('datebox').options.useLang = 'jp'
+      });
+    </script>
+  </head>
+
+  <body>
+    <div data-role="page">
+      <header data-role="header">
+        <h1>mobile+Mongodbの試作</h1>
+      </header>
+      <div data-role="content">
+        <%= yield %>
+      </div>
+      <footer data-role="footer">
+        Katoy (2011-11)
+      </footer>
+  </body>
+</html>

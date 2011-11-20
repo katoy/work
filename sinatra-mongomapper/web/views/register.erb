@@ -1,0 +1,41 @@
+<h2>情報登録</h2>
+<a href='/'>トップに戻る</a>
+<div data-role="fielderror">
+  <% if !@person.error_messages.empty? %>
+    <% @person.error_messages.each{|message| %>
+      <ul><font color="#ff0000"><%= message %></font></ul>
+    <% } %>
+  <% end %>
+</div><br>
+
+<form action='/registered' method='post'>
+  <div data-role="fieldcontain">
+    <label for="name">名前:</label>
+    <input type="text" name="name" id="name" value="<%= h @person.name %>"  />
+  </div>
+  <div data-role="fieldcontain">
+    <label for="address">住所:</label>
+    <input type="text" name="address" id="address" value="<%= h @person.address %>"  />
+  </div>
+  <div data-role="fieldcontain">
+    <label for="tel">電話番号:</label>
+    <input type="text" name="tel" id="tel" value="<%= h @person.tel %>"  />
+  </div>
+  <div data-role="fieldcontain">
+    <fieldset data-role="controlgroup" data-type="horizontal">
+      <legend>性別:</legend>
+      <input type="radio" name="gender" id="gender-male" value="male" <% if @person.gender == 'male' %>checked="checked"<% end %> />
+      <label for="gender-male">男性</label>
+      <input type="radio" name="gender" id="gender-female" value="female" <% if @person.gender == 'female' %>checked="checked"<% end %>/>
+      <label for="gender-female">女性</label>
+    </fieldset>
+  </div>
+  <div data-role="fieldcontain">
+    <label for="birthday">誕生日:</label>
+    <input type="date" name="birthday" id="birthday" value="<%= h @person.birthday %>"
+           data-role="datebox" data-options='{"mode": "calbox"}'
+           />
+  </div>
+
+  <input type='submit' value='登録'>
+</form>
